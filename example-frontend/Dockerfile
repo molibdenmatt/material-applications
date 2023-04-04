@@ -1,6 +1,6 @@
 FROM node:16-slim
 # Port change due to a newest MacOS Ventura
-EXPOSE 5001
+EXPOSE 443
 WORKDIR /usr/src/app
 COPY package* .
 RUN npm install
@@ -8,4 +8,4 @@ COPY . .
 ENV REACT_APP_BACKEND_URL=http://localhost:8080/
 RUN npm run build 
 RUN npm install -g serve
-CMD ["serve", "-s", "-l", "5001", "build"]
+CMD ["serve", "-s", "-l", "443", "build"]
